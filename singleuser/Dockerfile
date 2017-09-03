@@ -1,8 +1,8 @@
 FROM jupyter/datascience-notebook:cf6258237ff9
 ARG JUPYTERHUB_VERSION=0.7.2
-RUN conda install --quiet --yes \
-    jupyterhub=$JUPYTERHUB_VERSION
-    'obspy'
+RUN pip install --no-cache \
+    jupyterhub==$JUPYTERHUB_VERSION
+RUN pip install --no-cache obspy
 RUN wget https://cran.r-project.org/src/contrib/seismicRoll_1.1.2.tar.gz && /opt/conda/bin/R CMD INSTALL seismicRoll_1.1.2.tar.gz
 RUN conda install --quiet -c bioconda --yes \
 	'r-xml' \
