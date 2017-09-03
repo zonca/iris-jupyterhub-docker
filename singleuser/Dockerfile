@@ -4,8 +4,7 @@ RUN pip install --no-cache \
     jupyterhub==$JUPYTERHUB_VERSION
 RUN pip install --no-cache obspy
 RUN wget https://cran.r-project.org/src/contrib/seismicRoll_1.1.2.tar.gz && /opt/conda/bin/R CMD INSTALL seismicRoll_1.1.2.tar.gz
-RUN conda config --system --add channels r && \
-    conda install --quiet --yes \
+RUN conda install --quiet -c bioconda --yes \
 	'r-xml=3.98_1.3' \
 	'r-dplyr=0.4.3' \
 	'r-quadprog=1.5_5' \
